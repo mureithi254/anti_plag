@@ -1,24 +1,43 @@
-# README
+To use this app :
+#clone the repository to your machine to ensure 
+that you are upto date
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+$git clone http://github.com/mureithi254/anti_plag
 
-Things you may want to cover:
+```
+#make sure the following extra gems are installed on your local machine
 
-* Ruby version
+First;
 
-* System dependencies
+```
+$sudo apt-get update
 
-* Configuration
+```
 
-* Database creation
+```
+$gem install nokogiri
 
-* Database initialization
+```
+then;
 
-* How to run the test suite
+```
+$gem install httparty
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+lastly;
 
-* Deployment instructions
+```
+$gem install pry
 
-* ...
+```
+
+#Install the necessary gems necessary gems needed to run the the app
+
+```
+$bundle install --without production
+
+```
+Regards
+
+
