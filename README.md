@@ -15,7 +15,7 @@ $sudo apt-get update
 
 ```
 
-```
+```M
 $gem install nokogiri
 
 ```

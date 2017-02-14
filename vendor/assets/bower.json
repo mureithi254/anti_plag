@@ -1,0 +1,8 @@
+{
+  "name": "dsl-generated-dependencies",
+  "dependencies": {
+    "boostrap-sass-official": "latest"
+  },
+  "resolutions": {
+  }
+}
