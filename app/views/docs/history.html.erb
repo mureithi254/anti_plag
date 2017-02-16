@@ -1,0 +1,22 @@
+<table class = "table table-bordered table-striped">
+   <thead>
+      <tr>
+         <th>Name</th>
+         <th>Download Link</th>
+         <th> </th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @docs.each do |doc| %>
+         
+         <tr>
+            <td><%= doc.name %></td>
+            <td><%= link_to "Download Document", doc.attachment_url %></td>
+            <td><%= button_to "Delete",  doc, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{doc.name}?" %></td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>

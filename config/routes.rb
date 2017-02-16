@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'docs/create'
   get 'docs/destroy'
   get 'home/index'
+  get 'docs/history'
 
   root 'docs#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

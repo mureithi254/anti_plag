@@ -10,25 +10,23 @@
 <br />
 <br />
 
-<table class = "table table-bordered table-striped">
-   <thead>
-      <tr>
-         <th>Name</th>
-         <th>Download Link</th>
-         <th> </th>
-      </tr>
-   </thead>
-   
-   <tbody>
-      <% @docs.each do |doc| %>
-         
-         <tr>
-            <td><%= doc.name %></td>
-            <td><%= link_to "Download Document", doc.attachment_url %></td>
-            <td><%= button_to "Delete",  doc, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{doc.name}?" %></td>
-         </tr>
-         
-      <% end %>
-   </tbody>
-   
-</table>
+<!-- div that holds -->
+ <div class="comment-valve">
+ 	<div class="form-group">
+ 	    <label for=""></label>
+ 		<textarea class="form-control" rows="10" cols="100" placeholder="Document data will be displayed here data will be displayed here/You can paste data here "></textarea>
+ 	</div>
+ </div>
+ <br />
+ <br />
+ <br />
+
+<!-- button to check for plagiarism -->
+  <div class="check-plagiarism">
+    <button class="btn btn-danger">Scan for Plagiarism</button>
+  </div>
+
+ <!-- footer -->
+  <footer class="footer-bottom">
+  	 <p>&copy All right reserved | 2017</p>
+  </footer>

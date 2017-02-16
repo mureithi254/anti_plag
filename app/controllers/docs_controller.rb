@@ -1,6 +1,6 @@
 class DocsController < ApplicationController
   def index
-  	@docs = Doc.all
+    @docs = Doc.all
   end
 
   def new
@@ -11,7 +11,7 @@ class DocsController < ApplicationController
   	@doc = Doc.new(doc_params)
 
   	if @doc.save
-  		redirect_to docs_path , notice: "The resume #{@doc.name} has been saved"
+  		redirect_to docs_path , notice: "The document #{@doc.name} has been saved"
     else
     	render "new"
     end
@@ -22,7 +22,12 @@ class DocsController < ApplicationController
   	@doc = Doc.find(params[:id])
   	@doc.destroy
 
-  	redirect_to docs_path, notice: "This resume #{@resume.name} has been deleted"
+  	redirect_to docs_path, notice: "This document #{@doc.name} has been deleted"
+  end
+
+  def history
+  	@docs = Doc.all
+
   end
 
   private
