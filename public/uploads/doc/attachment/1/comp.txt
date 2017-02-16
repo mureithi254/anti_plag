@@ -1,0 +1,20 @@
+Sherlock performs an N2 comparison between all the files, so every file is compared with every other file.
+The output lists the similarity indexes between each pair of files. This index is a percentage, where 0% means no similarity and 100% means there is a very high chance of a lot of similarity. 100% does not mean that the files are exactly the same, since the Sherlock program randomly throws away some data in order to perform a faster match.
+
+The output of the program might look like this:
+
+   README and index.html: 5%
+   README and makefile: 1%
+   README and sherlock: 0%
+   README and sherlock.c: 2%
+   index.html and makefile: 8%
+   index.html and sherlock: 0%
+   index.html and sherlock.c: 10%
+   makefile and sherlock: 0%
+   makefile and sherlock.c: 6%
+   sherlock and sherlock.c: 0%
+(The threshold is normally 20%, so the above output would not ordinarily be shown. The example used a threshold lowered to 0% in order to see all similarities. The numbers are fake, however, and just for illustrational purposes.)
+In the example, the most similar files are index.html and sherlock.c with a rating of 10%. This means that approximately 10% of the material in those two files might be overlapping (i.e. appear in both files).
+
+Credits
+

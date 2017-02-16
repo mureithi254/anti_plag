@@ -1,7 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
 .logs{
 	font-family: 'Nosifer', cursive;
 	color: rgb(32,42,49);
@@ -22,7 +21,7 @@
 }
 .link-control{
 	width: 500px;
-	margin-left: 300px;
+	margin-left: 520px;
 }
 .btn-pos{
 	float: right;
@@ -40,3 +39,12 @@
 .footer-bottom{
     margin-top: 150px;
 }
+
+@media(max-width: 600px){
+	.link-control{
+		width: 100px;
+		margin-left: 100px;
+	}
+}
+
+
