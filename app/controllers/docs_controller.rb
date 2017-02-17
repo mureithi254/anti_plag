@@ -1,4 +1,6 @@
 class DocsController < ApplicationController
+  
+
   def index
     @docs = Doc.all
   end
@@ -27,7 +29,6 @@ class DocsController < ApplicationController
 
   def history
   	@docs = Doc.all
-
   end
 
   private

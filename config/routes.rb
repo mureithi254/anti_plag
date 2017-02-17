@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	resources :docs , only: [:index ,:new , :create , :destroy]
+	resources :docs , only: [:index ,:new , :create , :destroy, :history]
   get 'docs/index'
   get 'docs/new'
   get 'docs/create'

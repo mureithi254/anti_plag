@@ -1,3 +1,5 @@
+<% provide(:title ,"Home | Antiplagiarism") %>
+
 <% if !flash[:notice].blank? %>
    <div class = "alert alert-info">
       <%= flash[:notice] %>
@@ -17,6 +19,7 @@
  		<textarea class="form-control" rows="10" cols="100" placeholder="Document data will be displayed here data will be displayed here/You can paste data here "></textarea>
  	</div>
  </div>
+<%= link_to "History", docs_history_url, class: "btn btn-link" %>
  <br />
  <br />
  <br />
@@ -28,5 +31,5 @@
 
  <!-- footer -->
   <footer class="footer-bottom">
-  	 <p>&copy All right reserved | 2017</p>
+  	 <p>&copy All rights reserved | 2017</p>
   </footer>
