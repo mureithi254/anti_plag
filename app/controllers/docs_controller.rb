@@ -1,8 +1,8 @@
 class DocsController < ApplicationController
   
+  
 
   def index
-    @docs = Doc.all
   end
 
   def new
