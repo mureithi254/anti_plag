@@ -19,13 +19,16 @@
         <%= link_to "antiplagiarism", '#',id: "logo" ,:class => 'logs' %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   '#' %></li>
-            <li><%= link_to "Help",   '#' %></li>
-            <li><%= link_to "Log in", '#' %></li>
+            <li><%= link_to "Home", '#' %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Help", '#' %></li>
           </ul>
         </nav>
       </div>
     <div class="container" style = "padding-top:20px;">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
   </body>

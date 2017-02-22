@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails',        '5.0.1'
+gem 'thor-rails'
+gem 'devise', '~> 4.2'
 gem 'bootstrap-sass','3.3.6'
+gem 'devise-bootstrap-views'
 gem 'puma',         '3.4.0'
 gem 'sass-rails',   '5.0.6'
 gem 'uglifier',     '3.0.0'
