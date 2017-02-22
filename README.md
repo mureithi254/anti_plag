@@ -1,27 +1,27 @@
- ## Antiplagiarism App
+## Antiplagiarism App
+New app developed in ruby designed to read patterns by scrapping a webpage and comparing sentence patterns with an external document.Any attempts of plagiarism will be read and reported
 
- ===================================
+### Prerequisities
 
- ### Prerequisities 
-
- * Git
- * Ruby v2.4.0
- * Rails 5.0.1
+* Github account
+* Git
+* Ruby v2.4.0
+* Rails 5.0.1
 
 To use this app :
 
 ### Fork the Repository
 
-Forking the project creates a copy of the code base 
-which you can modify without affecting the main code 
-base. Once you are okay with the changes you can make 
+Forking the project creates a copy of the code base
+which you can modify without affecting the main code
+base. Once you are okay with the changes you can make
 a Pull Request.
 
-Now that you have a fork project, copy the URL for 
-the Repo and clone the project using Git 
+Now that you have a fork project, copy the URL for
+the Repo and clone the project using Git
 
 ```
-$ git clone https://github.com  <your-github-username> /anti_plag.git 
+$ git clone https://github.com  <your-github-username> /anti_plag.git
 
 ```
 Lets now configure remote to point to the main project
@@ -67,14 +67,14 @@ $ bundle install --without production
 
 ```
 
-### Update the Database 
+### Update the Database
 
 ```
 $ bundle exec rails db:migrate
 
 ```
 
-### Start the Server 
+### Start the Server
 
 ```
 $ bundle exec rails s
@@ -93,5 +93,3 @@ This project is licensed under the **_MIT license._**
 
 
 Regards
-
-
