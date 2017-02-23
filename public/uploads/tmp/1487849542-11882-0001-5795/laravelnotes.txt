@@ -1,0 +1,13 @@
+composer create project-project laravel/laravel appname --prefer dist
+
+
+php artisan make:model Book(anything in database)
+
+php artisan make:controller BookController(this is where you add all your functions)
+
+php artisan route:list(list all the routes.../url...in this case you only have welcome)
+
+composer clearcache
+
+
+8110fe1256cf

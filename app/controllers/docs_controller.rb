@@ -1,4 +1,6 @@
 class DocsController < ApplicationController
+
+
   def index
   end
 
@@ -7,7 +9,7 @@ class DocsController < ApplicationController
   end
 
   def create
-  	@doc = Doc.new(doc_params)
+  	@doc = current_user.docs.build(doc_params)
 
   	if @doc.save
   		redirect_to docs_path , notice: "The document #{@doc.name} has been saved"
@@ -25,11 +27,16 @@ class DocsController < ApplicationController
   end
 
   def history
-  	@docs = Doc.all
+  
+      if !user_signed_in?
+         flash[:danger] = "Please sign in!"
+      else
+      	@docs = @current_user.docs
+      end
   end
 
   private
 	  def doc_params
-	    params.require(:doc).permit(:name ,:attachment)
+	    params.require(:doc).permit(:name ,:attachment , current_user.id)
 	  end
 end

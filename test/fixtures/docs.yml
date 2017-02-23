@@ -3,7 +3,9 @@
 one:
   name: MyString
   attachment: MyString
+  users: 
 
 two:
   name: MyString
   attachment: MyString
+  users: 

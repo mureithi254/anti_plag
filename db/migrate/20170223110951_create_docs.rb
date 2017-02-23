@@ -3,6 +3,7 @@ class CreateDocs < ActiveRecord::Migration[5.0]
     create_table :docs do |t|
       t.string :name
       t.string :attachment
+      t.references :user ,foreign_key: true
 
       t.timestamps
     end
