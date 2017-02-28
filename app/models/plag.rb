@@ -1,4 +1,4 @@
-class Anemon
+class Plag < ApplicationRecord
    require 'anemone'
    require 'nokogiri'
    require 'open-uri'
@@ -90,5 +90,7 @@ class Anemon
        @visited.close
     end
   end
+
+end
 
 end

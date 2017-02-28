@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :plags
   devise_for :users
   get 'results/compare'
 

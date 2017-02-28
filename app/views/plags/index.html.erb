@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Plags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plags.each do |plag| %>
+      <tr>
+        <td><%= link_to 'Show', plag %></td>
+        <td><%= link_to 'Edit', edit_plag_path(plag) %></td>
+        <td><%= link_to 'Destroy', plag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plag', new_plag_path %>

@@ -1,0 +1,17 @@
+<%= form_for(plag) do |f| %>
+  <% if plag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plag.errors.count, "error") %> prohibited this plag from being saved:</h2>
+
+      <ul>
+      <% plag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

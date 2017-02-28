@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ReportTest < ActiveSupport::TestCase
+class PlagTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
