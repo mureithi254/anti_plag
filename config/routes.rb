@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'results/crawl'
-
-  get 'results/nokogiri'
-
   get 'results/compare'
-
-  get 'results/results'
 
 	resources :docs , only: [:index ,:new , :create , :destroy, :history]
   get 'docs/index'

@@ -27,7 +27,6 @@ class DocsController < ApplicationController
   end
 
   def history
-  
       if !user_signed_in?
          flash[:danger] = "Please sign in!"
       else
