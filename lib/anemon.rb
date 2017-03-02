@@ -93,10 +93,3 @@ end
 
 #plag = Anemon::Scrapper.new
 #plag.scrap('http://google.com')
-
-#plag.crawl('http://anemone.rubyforge.org')
-#plag.scrapped_file('http://anemone.rubyforge.org')
-
-#plag.uploaded_docs("makefile.txt")
-#plag.comparative("scrapped.txt")
-#plag.visited_links
