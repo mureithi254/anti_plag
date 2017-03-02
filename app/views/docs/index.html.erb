@@ -1,29 +1,27 @@
 <% provide(:title ,"Home | Antiplagiarism") %>
 
 <% if !flash[:notice].blank? %>
-   <div class = "alert alert-info">
-      <%= flash[:notice] %>
-   </div>
+  <div class = "alert alert-info">
+    <%= flash[:notice] %>
+  </div>
 <% end %>
 
-<br />
+<br/>
 
-<%= link_to "New Document", new_doc_path, class: "btn btn-primary" %>
+<%=link_to "New Document", new_doc_path, class: "btn btn-primary" %>
+<br/>
+
+<%=link_to "History", docs_history_url, class: "btn btn-link" %>
 <br />
 <br />
-
-
-<%= link_to "History", docs_history_url, class: "btn btn-link" %>
- <br />
- <br />
- <br />
+<br />
 
 <!-- button to check for plagiarism -->
-  <div class="check-plagiarism">
-    <button class="btn btn-danger">Scan for Plagiarism</button>
-  </div>
+<div class="check-plagiarism">
+  <button class="btn btn-danger">Scan for Plagiarism</button>
+</div>
 
- <!-- footer -->
-  <footer class="footer-bottom">
-  	 <p>&copy All rights reserved | 2017</p>
-  </footer>
+<!-- footer -->
+<footer class="footer-bottom">
+  <p>&copy All rights reserved | 2017</p>
+</footer>
