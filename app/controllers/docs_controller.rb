@@ -35,7 +35,7 @@ class DocsController < ApplicationController
 
   def compare
     plag = Scrapper.new
-    @doc = Doc.find(params[:id])  #@docs is the uploaded document
+    @doc = @current_user.docs #get the file uploaded for that particular user only
     plag.compare(@doc)
   end
 

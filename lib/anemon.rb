@@ -31,7 +31,7 @@ module Anemon
       end
     end
 
-    def compare(@doc)
+    def compare(filename)
       # read the given file (filename)
       # return an array of lines
       # go through scrapped files and see if we have a matching
