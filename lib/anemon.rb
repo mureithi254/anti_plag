@@ -25,6 +25,9 @@ module Anemon
         end
         write_to_file(url, data)
         store_visited_link(url)
+        # in ruby the last statement in a method is always the returned value
+        # of the particular method
+        {:url => url, :content => data }
       end
     end
 
@@ -33,6 +36,9 @@ module Anemon
     end
 
     def compare(file_name)
+      # read the given file (filename)
+      # return an array of lines
+      # go through scrapped files and see if we have a matching
       @scrap_lines = File.readlines(file_name)
 
       @upload_docs.each do |upload_doc_line|
@@ -90,6 +96,5 @@ module Anemon
     end
   end
 end
-
 #plag = Anemon::Scrapper.new
 #plag.scrap('http://google.com')
