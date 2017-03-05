@@ -31,17 +31,13 @@ module Anemon
       end
     end
 
-    def uploaded_docs(file_name)
-      File.readlines(file_name)
-    end
-
-    def compare(file_name)
+    def compare(@doc)
       # read the given file (filename)
       # return an array of lines
       # go through scrapped files and see if we have a matching
-      @scrap_lines = File.readlines(file_name)
+      @scrap_lines = File.readlines(filename)
 
-      @upload_docs.each do |upload_doc_line|
+      @doc.each do |upload_doc_line|
         if @scrap_lines.include?(upload_doc_line)
           if File.file?("report.txt")
             File.open("report.txt" ,"w"){ |file| file.write(upload_doc_line)}

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'docs/destroy'
   get 'home/index'
   get 'docs/history'
+  get 'docs/compare'
 
   root 'docs#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

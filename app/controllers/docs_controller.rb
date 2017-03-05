@@ -1,4 +1,6 @@
 class DocsController < ApplicationController
+ include Anemon
+
   def index
   end
 
@@ -32,9 +34,9 @@ class DocsController < ApplicationController
   end
 
   def compare
-    file = Doc.find(params[:id])
-    filename = file.attachment.path
-    Plug.compare(filename)
+    plag = Scrapper.new
+    @doc = Doc.find(params[:id])  #@docs is the uploaded document
+    plag.compare(@doc)
   end
 
   private

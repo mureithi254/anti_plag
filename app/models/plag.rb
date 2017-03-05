@@ -1,4 +1,7 @@
 class Plag < ApplicationRecord
+
+	belongs_to :Doc
+	belongs_to :User
   include Anemon
 
   @anemon = Anemon::Scrapper.new
