@@ -31,24 +31,14 @@ module Anemon
       end
     end
 
-    def compare(filename)
-      # read the given file (filename)
-      # return an array of lines
-      # go through scrapped files and see if we have a matching
-      @scrap_lines = File.readlines(filename)
+    def compare(filename ,file_name)
+      scrapdata = File.readlines(filename)
+      uploaded_data = File.readlines(file_name)
 
-      @doc.each do |upload_doc_line|
-        if @scrap_lines.include?(upload_doc_line)
-          if File.file?("report.txt")
-            File.open("report.txt" ,"w"){ |file| file.write(upload_doc_line)}
-          else
-            @reportfile = File.new("report.txt","w+")
-            File.open("report.txt","w"){ |file| file.write(upload_doc_line)}
-            @reportfile.close
-          end
-        else
-          puts "No instances of plagiarism detected in the application;"
-        end
+      unless (scrapdata && uploaded_data).empty? 
+        Puts "Plagiarism detected"
+      else
+         scrap(url)
       end
     end
 

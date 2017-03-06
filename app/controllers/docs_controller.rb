@@ -1,5 +1,4 @@
 class DocsController < ApplicationController
- include Anemon
 
   def index
   end
@@ -26,17 +25,10 @@ class DocsController < ApplicationController
   end
 
   def history
-    if !user_signed_in?
-      flash[:danger] = "Please sign in!"
-    else
-      @docs = @current_user.docs
-    end
+      @docs = current_user.docs
   end
 
   def compare
-    plag = Scrapper.new
-    @doc = @current_user.docs #get the file uploaded for that particular user only
-    plag.compare(@doc)
   end
 
   private

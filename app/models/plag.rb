@@ -11,7 +11,7 @@ class Plag < ApplicationRecord
     Plag.create({url: result[:url], content: result[:content]}) if result
   end
 
-  def self.compare(file_name)
-    @anemon.compare(url)
+  def self.compare(filename ,file_name)
+    @anemon.compare(filename ,file_name)
   end
 end
