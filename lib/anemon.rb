@@ -31,14 +31,18 @@ module Anemon
       end
     end
 
-    def compare(filename ,file_name)
-      scrapdata = File.readlines(filename)
-      uploaded_data = File.readlines(file_name)
+    def compare(scrapped_file, uploaded_document)
+      # user = User.first
+      # doc = User.docs.first
+      # path = doc.attachment.path
+      # Plag.compare('tribiantech_net.txt', path)
+      scrapped_data        =  File.readlines(scrapped_file)
+      uploaded_content =  File.readlines(uploaded_document)
 
-      unless (scrapdata && uploaded_data).empty? 
-        Puts "Plagiarism detected"
+      unless (scrapped_data && uploaded_content).empty?
+        puts "Plagiarism detected"
       else
-         scrap(url)
+        puts "No Plagiarism detected"
       end
     end
 

@@ -1,8 +1,8 @@
 class Plag < ApplicationRecord
-
-	belongs_to :Doc
-	belongs_to :User
   include Anemon
+
+  belongs_to :doc
+  belongs_to :user
 
   @anemon = Anemon::Scrapper.new
 
@@ -11,7 +11,7 @@ class Plag < ApplicationRecord
     Plag.create({url: result[:url], content: result[:content]}) if result
   end
 
-  def self.compare(filename ,file_name)
-    @anemon.compare(filename ,file_name)
+  def self.compare(scrapped_file , uploaded_document)
+    @anemon.compare(scrapped_file ,uploaded_document.attachment.path)
   end
 end
