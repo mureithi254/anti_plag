@@ -17,7 +17,7 @@ module Anemon
         crawl(url).each do |urli|
           html_data = open(urli).read
           nokogiri_object = Nokogiri::HTML(html_data)
-          elements = nokogiri_object.xpath("//p")
+          elements = nokogiri_object.xpath("//p","//h1","//h2","//h3","//h4","//h5","//h6")
 
           elements.each do |element|
             data = element.text
@@ -30,14 +30,14 @@ module Anemon
         {:url => url, :content => data }
       end
     end
-
-    def compare(scrapped_file, uploaded_document)
+          
+    def check_for_plagiarism(scrapped_file, uploaded_document)
       # user = User.first
       # doc = User.docs.first
       # path = doc.attachment.path
       # Plag.compare('tribiantech_net.txt', path)
-      scrapped_data        =  File.readlines(scrapped_file)
-      uploaded_content =  File.readlines(uploaded_document)
+      scrapped_data = File.readlines(scrapped_file)
+      uploaded_content = File.readlines(uploaded_document)
 
       unless (scrapped_data && uploaded_content).empty?
         puts "Plagiarism detected"

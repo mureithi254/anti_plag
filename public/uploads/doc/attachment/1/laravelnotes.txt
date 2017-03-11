@@ -1,13 +1,11 @@
-composer create project-project laravel/laravel appname --prefer dist
 
 
-php artisan make:model Book(anything in database)
+The Unicorns of business have proven their existence.
+ And this is the forumn that we are know for...we are anonymous.Expect us.
+ And there are many businesses which are going to be carried out with e-commerce. 
+We are one among them.
+ THIs is because we are good people and we do not deserve to be treated like trash. 
+While we are going to offer you our services of designing the e-commerce portal for you in the most creative and business generating manner.
+    
 
-php artisan make:controller BookController(this is where you add all your functions)
 
-php artisan route:list(list all the routes.../url...in this case you only have welcome)
-
-composer clearcache
-
-
-8110fe1256cf

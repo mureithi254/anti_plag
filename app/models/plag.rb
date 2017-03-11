@@ -11,7 +11,7 @@ class Plag < ApplicationRecord
     Plag.create({url: result[:url], content: result[:content]}) if result
   end
 
-  def self.compare(scrapped_file , uploaded_document)
-    @anemon.compare(scrapped_file ,uploaded_document.attachment.path)
+  def self.check_for_plagiarism(scrapped_file , uploaded_document)
+    @anemon.check_for_plagiarism(scrapped_file ,uploaded_document)
   end
 end

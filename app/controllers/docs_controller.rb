@@ -29,6 +29,11 @@ class DocsController < ApplicationController
   end
 
   def compare
+    @user = current_user
+    @uploaded_document = @user.docs.last
+    @path = @uploaded_document.attachment.path
+    
+    Plag.check_for_plagiarism('tribiantech_net.txt',@path)
   end
 
   private
