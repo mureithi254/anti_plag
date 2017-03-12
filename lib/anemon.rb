@@ -27,7 +27,7 @@ module Anemon
         store_visited_link(url)
         # in ruby the last statement in a method is always the returned value
         # of the particular method
-        {:url => url, :content => data }
+        {:url => url, :content => data , :filename => filename}
       end
     end
           
@@ -75,15 +75,15 @@ module Anemon
       @scrap_file = File.readlines(filename)
     end
 
-    def store_visited_link(url)
-      if File.file?("visited_links.txt")
-        File.open("visited_links.txt","a"){|file| file.puts(url) }
-      else
-        @visited = File.new("visited_links.txt","w")
-        File.open("visited_links.txt","w"){ |file| file.write(url)}
-        @visited.close
-      end
-    end
+  #   def store_visited_link(url)
+  #     if File.file?("visited_links.txt")
+  #       File.open("visited_links.txt","a"){|file| file.puts(url) }
+  #     else
+  #       @visited = File.new("visited_links.txt","w")
+  #       File.open("visited_links.txt","w"){ |file| file.write(url)}
+  #       @visited.close
+  #     end
+  #   end
   end
 end
 #plag = Anemon::Scrapper.new

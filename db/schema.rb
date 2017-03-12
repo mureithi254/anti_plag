@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20170305134212) do
 
   create_table "docs", force: :cascade do |t|
     t.string   "name"
+    t.string   "url"
     t.string   "attachment"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170305134212) do
     t.datetime "updated_at", null: false
     t.string   "url"
     t.text     "content"
+    t.string   "filename"
     t.integer  "user_id"
     t.integer  "doc_id"
     t.index ["doc_id"], name: "index_plags_on_doc_id"

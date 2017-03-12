@@ -33,11 +33,12 @@ class DocsController < ApplicationController
     @uploaded_document = @user.docs.last
     @path = @uploaded_document.attachment.path
     
+    Plag.scrap("http://tribiantech_net")
     Plag.check_for_plagiarism('tribiantech_net.txt',@path)
   end
 
   private
   def doc_params
-    params.require(:doc).permit(:name ,:attachment , current_user.id)
+    params.require(:doc).permit(:name ,:url ,:attachment , current_user.id)
   end
 end
