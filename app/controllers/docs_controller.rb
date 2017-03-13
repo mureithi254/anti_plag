@@ -29,14 +29,17 @@ class DocsController < ApplicationController
   end
 
   def compare
-    @user = current_user
-    @uploaded_document = @user.docs.last
-    @path = @uploaded_document.attachment.path
-    
-    Plag.scrap("http://tribiantech_net")
-    Plag.check_for_plagiarism('tribiantech_net.txt',@path)
-  end
+    user = current_user
+    doc = user.docs.last
+    uploaded_document = doc.attachment.path
+    url_to_scrap = doc.url
 
+    plag = user.plags.last
+    filename = plag.filename
+
+    Plag.scrap(url_to_scrap)
+    Plag.check_for_plagiarism(filename , uploaded_document)
+  end
   private
   def doc_params
     params.require(:doc).permit(:name ,:url ,:attachment , current_user.id)

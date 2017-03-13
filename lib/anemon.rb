@@ -20,11 +20,11 @@ module Anemon
           elements = nokogiri_object.xpath("//p","//h1","//h2","//h3","//h4","//h5","//h6")
 
           elements.each do |element|
-            data = element.text
+            data << element.text
           end
         end
         write_to_file(url, data)
-        store_visited_link(url)
+        #store_visited_link(url)
         # in ruby the last statement in a method is always the returned value
         # of the particular method
         {:url => url, :content => data , :filename => filename}
@@ -75,15 +75,15 @@ module Anemon
       @scrap_file = File.readlines(filename)
     end
 
-  #   def store_visited_link(url)
-  #     if File.file?("visited_links.txt")
-  #       File.open("visited_links.txt","a"){|file| file.puts(url) }
-  #     else
-  #       @visited = File.new("visited_links.txt","w")
-  #       File.open("visited_links.txt","w"){ |file| file.write(url)}
-  #       @visited.close
-  #     end
-  #   end
+    def store_visited_link(url)
+      if File.file?("visited_links.txt")
+        File.open("visited_links.txt","a"){|file| file.puts(url) }
+      else
+        @visited = File.new("visited_links.txt","w")
+        File.open("visited_links.txt","w"){ |file| file.write(url)}
+        @visited.close
+      end
+    end
   end
 end
 #plag = Anemon::Scrapper.new
