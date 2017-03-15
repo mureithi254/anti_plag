@@ -6,8 +6,8 @@ class Plag < ApplicationRecord
 
   @anemon = Anemon::Scrapper.new
 
-  def self.scrap(url)
-    result = @anemon.scrap(url)
+  def self.crawl_and_scrap(url)
+    result = @anemon.crawl_and_scrap(url)
     puts result.inspect
     Plag.create({url: result[:url], content: result[:content], filename: result[:filename]}) if result
   end

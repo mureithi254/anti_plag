@@ -4,31 +4,39 @@ module Anemon
     require 'nokogiri'
     require 'open-uri'
 
-    def scrap(url)
+    def crawl_and_scrap(url)
 
       filename = url.gsub("http://", "").split(".").join("_").strip + ".txt"
 
-      # only scrap pages you havent scrapped yet
-      if File.file?(filename)
-        puts "This page has already been scrapped"
-      else
-        puts "scrapping #{url} for data..."
-        data = []
-        crawl(url).each do |urli|
-          html_data = open(urli).read
-          nokogiri_object = Nokogiri::HTML(html_data)
-          elements = nokogiri_object.xpath("//p","//h1","//h2","//h3","//h4","//h5","//h6")
-
-          elements.each do |element|
-            data << element.text
+      # 
+          puts "crawling the web..."
+         
+          Anemone.crawl(url) do |anemone|
+            anemone.on_every_page do |page|
+              urls = []
+              links = page.url
+              urls.push(links)
+            end
           end
-        end
+     
+          puts "scrapping #{url} for data..."
+          data = []
+          urls.each do |urli|
+            html_data = open(urli).read
+            nokogiri_object = Nokogiri::HTML(html_data)
+            elements = nokogiri_object.xpath("//p,//h1,//h2,//h3,//h4,//h5,//h6")
+
+            elements.each do |element|
+              data << element.text
+            end
+          end
         write_to_file(url, data)
         #store_visited_link(url)
         # in ruby the last statement in a method is always the returned value
         # of the particular method
         {:url => url, :content => data , :filename => filename}
-      end
+
+        
     end
           
     def check_for_plagiarism(scrapped_file, uploaded_document)
@@ -47,19 +55,6 @@ module Anemon
     end
 
     private
-
-    def crawl(url)
-      puts "crawling the web..."
-      urls = []
-      Anemone.crawl(url) do |anemone|
-        anemone.on_every_page do |page|
-          links = page.url
-          urls.push(links)
-        end
-      end
-      # returns urls as an array
-      urls
-    end
 
     def write_to_file(url, data)
       filename = url.gsub("http://", "").split(".").join("_").strip + ".txt"
