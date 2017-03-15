@@ -8,23 +8,25 @@ module Anemon
 
       filename = url.gsub("http://", "").split(".").join("_").strip + ".txt"
 
-      # 
+      #crawl the web to get information out web pages
           puts "crawling the web..."
          
           Anemone.crawl(url) do |anemone|
             anemone.on_every_page do |page|
-              urls = []
-              links = page.url
-              urls.push(links)
+              @urls = []
+              @urls << page.url
+              
             end
           end
-     
+      #feed in the urls obtained from the crawl to start scrapping  
           puts "scrapping #{url} for data..."
+
           data = []
-          urls.each do |urli|
+
+          @urls.each do |urli|
             html_data = open(urli).read
             nokogiri_object = Nokogiri::HTML(html_data)
-            elements = nokogiri_object.xpath("//p,//h1,//h2,//h3,//h4,//h5,//h6")
+            elements = nokogiri_object.xpath("//p","//h1","//h2","//h3","//h4","//h5","//h6")
 
             elements.each do |element|
               data << element.text
@@ -46,12 +48,14 @@ module Anemon
       # Plag.compare('tribiantech_net.txt', path)
       scrapped_data = File.readlines(scrapped_file)
       uploaded_content = File.readlines(uploaded_document)
-
-      unless (scrapped_data && uploaded_content).empty?
-        puts "Plagiarism detected"
-      else
-        puts "No Plagiarism detected"
+      
+      @plagiarised_content = []
+      uploaded_content.each do |uploaded_content_lines|u
+        if scrapped_data.include?(uploaded_content_lines)
+          @plagiarised_content << uploaded_content_lines
+        end
       end
+      
     end
 
     private

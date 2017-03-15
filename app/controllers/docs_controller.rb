@@ -35,7 +35,7 @@ class DocsController < ApplicationController
     url_to_scrap = doc.url
 
     plag = user.plags.last
-    filename = plag.filename
+    filename = plag.content
 
     Plag.scrap(url_to_scrap)
     Plag.check_for_plagiarism(filename , uploaded_document)
