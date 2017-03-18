@@ -4,7 +4,7 @@ module Anemon
     require 'nokogiri'
     require 'open-uri'
 
-    def crawl_and_scrap(url)
+    def crawl_and_scrap(url ,user ,doc)
 
       filename = url.gsub("http://", "").split(".").join("_").strip + ".txt"
 
@@ -36,9 +36,7 @@ module Anemon
         #store_visited_link(url)
         # in ruby the last statement in a method is always the returned value
         # of the particular method
-        {:url => url, :content => data , :filename => filename}
-
-        
+        {:url => url, :content => data , :filename => filename ,:user => user ,:doc => doc}
     end
           
     def check_for_plagiarism(scrapped_file, uploaded_document)
@@ -50,7 +48,7 @@ module Anemon
       uploaded_content = File.readlines(uploaded_document)
       
       @plagiarised_content = []
-      uploaded_content.each do |uploaded_content_lines|u
+      uploaded_content.each do |uploaded_content_lines|
         if scrapped_data.include?(uploaded_content_lines)
           @plagiarised_content << uploaded_content_lines
         end

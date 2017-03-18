@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305134212) do
+ActiveRecord::Schema.define(version: 20170318183828) do
 
   create_table "docs", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20170305134212) do
     t.string   "filename"
     t.integer  "user_id"
     t.integer  "doc_id"
+    t.integer  "doc"
+    t.integer  "user"
     t.index ["doc_id"], name: "index_plags_on_doc_id"
     t.index ["user_id"], name: "index_plags_on_user_id"
   end

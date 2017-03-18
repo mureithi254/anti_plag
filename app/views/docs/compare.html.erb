@@ -1,8 +1,9 @@
-<p>THis is where we check for plagiarism</p>
+<p id="notice"><%= notice %></p>
 
-<%= @user %>
-<br>
-<%= @uploaded_document %>
-<br>
-<%= @path %>
-
+<% if @plagiarised_content %>
+	<% @plagiarised_content.each do |plagiarised_lines| %>
+	   <%= plagiarised_lines %>
+	<% end %>
+<% else %>
+   <div class="alert alert-success">No plagiarism detected</div>
+<% end %>
