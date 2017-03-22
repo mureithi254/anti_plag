@@ -44,13 +44,17 @@ module Anemon
       # doc = User.docs.first
       # path = doc.attachment.path
       # Plag.compare('tribiantech_net.txt', path)
-      scrapped_data = File.readlines(scrapped_file)
-      uploaded_content = File.readlines(uploaded_document)
+      scrapped_data = File.readlines(scrapped_file) #get lines from the scrapped file in an array 
+      uploaded_content = File.readlines(uploaded_document) #get uploaded_content in an array
       
       @plagiarised_content = []
+
       uploaded_content.each do |uploaded_content_lines|
         if scrapped_data.include?(uploaded_content_lines)
-          @plagiarised_content << uploaded_content_lines
+          #append plagiarised uploaded lines to the plagiarised_content array
+          @plagiarised_content.push(uploaded_content_lines)
+        else
+             break
         end
       end
       
