@@ -1,4 +1,5 @@
 class DocsController < ApplicationController
+  include Anemon
 
   def index
   end
@@ -40,7 +41,7 @@ class DocsController < ApplicationController
     Plag.crawl_and_scrap(url_to_scrap, user ,doc)
     Plag.check_for_plagiarism(filename , uploaded_document)
     
-    if (@plagiarised_content).blank?
+    if @plagiarised_content.blank?
       flash[:alert] = "No plagiarism detected"
     else
        flash[:notice] = "plagiarism detected"

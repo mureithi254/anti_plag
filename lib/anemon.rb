@@ -3,6 +3,7 @@ module Anemon
     require 'anemone'
     require 'nokogiri'
     require 'open-uri'
+    require 'set'
 
     def crawl_and_scrap(url ,user ,doc)
 
@@ -44,19 +45,20 @@ module Anemon
       # doc = User.docs.first
       # path = doc.attachment.path
       # Plag.compare('tribiantech_net.txt', path)
-      scrapped_data = File.readlines(scrapped_file) #get lines from the scrapped file in an array 
-      uploaded_content = File.readlines(uploaded_document) #get uploaded_content in an array
+      # scrapped_data = File.readlines(scrapped_file) #get lines from the scrapped file in an array 
+      # uploaded_content = File.readlines(uploaded_document) #get uploaded_content in an array
       
-      @plagiarised_content = []
+      # @plagiarised_content = []
+      
+      # f1 = File.read('makefile.txt').split(/\r?\n/).to_set
+      # f2 = File.read('scrapped.txt').split(/\r?\n/).to_set
+      # p f1.intersection(f2).to_a
+      
+      scrapped_data = File.read(scrapped_file).split(/\r?\n/).to_set
+      uploaded_content = File.read(uploaded_document).split(/\r?\n/).to_set
+      
+      @plagiarised_content = scrapped_data.intersection(uploaded_content).to_a
 
-      uploaded_content.each do |uploaded_content_lines|
-        if scrapped_data.include?(uploaded_content_lines)
-          #append plagiarised uploaded lines to the plagiarised_content array
-          @plagiarised_content.push(uploaded_content_lines)
-        else
-             break #break out of the loop if 
-        end
-      end
       
     end
 
