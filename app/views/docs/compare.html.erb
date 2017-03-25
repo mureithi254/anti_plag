@@ -1,9 +1,2 @@
 <p id="notice"><%= notice %></p>
 
-<% if @plagiarised_content %>
-	<% @plagiarised_content.each do |plagiarised_lines| %>
-	   <%= plagiarised_lines %>
-	<% end %>
-<% else %>
-   <div class="alert alert-success">No plagiarism detected</div>
-<% end %>

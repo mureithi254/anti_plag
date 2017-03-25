@@ -54,7 +54,7 @@ module Anemon
           #append plagiarised uploaded lines to the plagiarised_content array
           @plagiarised_content.push(uploaded_content_lines)
         else
-             break
+             break #break out of the loop if 
         end
       end
       
