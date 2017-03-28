@@ -22,8 +22,8 @@ module Anemon
       #feed in the urls obtained from the crawl to start scrapping  
           puts "scrapping #{url} for data..."
 
-          data = []
-
+         data = []
+          
           @urls.each do |urli|
             html_data = open(urli).read
             nokogiri_object = Nokogiri::HTML(html_data)
@@ -33,7 +33,9 @@ module Anemon
               data << element.text
             end
           end
-        write_to_file(url, data)
+
+          ready_to_write_to_file = data.join(" ")
+        write_to_file(url, ready_to_write_to_file)
         #store_visited_link(url)
         # in ruby the last statement in a method is always the returned value
         # of the particular method
@@ -53,13 +55,14 @@ module Anemon
       # f1 = File.read('makefile.txt').split(/\r?\n/).to_set
       # f2 = File.read('scrapped.txt').split(/\r?\n/).to_set
       # p f1.intersection(f2).to_a
+
+      puts "checking for plagiarism ... "
       
       scrapped_data = File.read(scrapped_file).split(/\r?\n/).to_set
       uploaded_content = File.read(uploaded_document).split(/\r?\n/).to_set
       
       @plagiarised_content = scrapped_data.intersection(uploaded_content).to_a
-
-      
+      puts @plagiarised_content
     end
 
     private

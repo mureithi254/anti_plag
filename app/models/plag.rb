@@ -14,8 +14,4 @@ class Plag < ApplicationRecord
   def self.check_for_plagiarism(scrapped_file , uploaded_document)
     @anemon.check_for_plagiarism(scrapped_file ,uploaded_document)
   end
-
-  def self.display_plagiarised_lines
-     @anemon.display_plagiarised_lines
-  end
 end
