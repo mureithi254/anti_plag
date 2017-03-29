@@ -62,7 +62,6 @@ module Anemon
       uploaded_content = File.read(uploaded_document).split(/\r?\n/).to_set
       
       @plagiarised_content = scrapped_data.intersection(uploaded_content).to_a
-      puts @plagiarised_content
     end
 
     private

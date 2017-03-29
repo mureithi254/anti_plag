@@ -33,13 +33,19 @@ class DocsController < ApplicationController
     user = current_user
     doc = user.docs.last
     uploaded_document = doc.attachment.path
-    url_to_scrap = doc.url
+    @url_to_scrap = doc.url
 
     plag = user.plags.last
     filename = plag.filename
 
-    Plag.crawl_and_scrap(url_to_scrap, user ,doc)
+    Plag.crawl_and_scrap(@url_to_scrap, user ,doc)
     Plag.check_for_plagiarism(filename , uploaded_document)
+
+    unless @plagiarised_content.nil?
+      flash[:notice] = "No plagiarism has been detected"
+    else
+      flash[:error] = "Plagiari"
+    end
 
     
   end
