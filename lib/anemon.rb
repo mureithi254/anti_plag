@@ -39,10 +39,10 @@ module Anemon
         #store_visited_link(url)
         # in ruby the last statement in a method is always the returned value
         # of the particular method
-        {:url => url, :content => data , :filename => filename ,:user => user ,:doc => doc}
+        {:url => url, :content => ready_to_write_to_file , :filename => filename ,:user => user ,:doc => doc}
     end
           
-    def check_for_plagiarism(scrapped_file, uploaded_document)
+    def check_for_plagiarism(scrapped_file, uploaded_document ,user ,doc ,plag)
       # user = User.first
       # doc = User.docs.first
       # path = doc.attachment.path
@@ -61,8 +61,11 @@ module Anemon
       scrapped_data = File.read(scrapped_file).split(/\r?\n/).to_set
       uploaded_content = File.read(uploaded_document).split(/\r?\n/).to_set
       
-      @plagiarised_content = scrapped_data.intersection(uploaded_content).to_a
+      plagiarised_content = scrapped_data.intersection(uploaded_content).to_a
+      
+      { :plagiarised_content => plagiarised_content }
     end
+
 
     private
 

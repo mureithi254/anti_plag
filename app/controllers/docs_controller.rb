@@ -39,14 +39,14 @@ class DocsController < ApplicationController
     filename = plag.filename
 
     Plag.crawl_and_scrap(@url_to_scrap, user ,doc)
-    Plag.check_for_plagiarism(filename , uploaded_document)
+    Result.check_for_plagiarism(filename , uploaded_document ,user ,doc ,plag)
+    @results = Result.all
 
-    unless @plagiarised_content.nil?
-      flash[:notice] = "No plagiarism has been detected"
+    unless @results.blank?
+      flash[:notice] = "No plagiarism detected!"
     else
-      flash[:error] = "Plagiari"
+      flash[:alert] = "plagiarism detected!"
     end
-
     
   end
   private

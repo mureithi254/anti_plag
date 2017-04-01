@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<% @plagiarised_content.each do |plag_lines| %>
-  <p> This line has been plagiarised <%= plag_lines %></p>
-  <p>@url</p> 
+<% @results.each do |result| %>
+  <p> This line has been plagiarised <%= result.plagiarised_content %></p>
+  <p><%= @url %></p> 
 <% end %>
