@@ -30,17 +30,23 @@ class DocsController < ApplicationController
   end
 
   def compare
-    user = current_user
-    doc = user.docs.last
+  
+    doc = current_user.docs.last
     uploaded_document = doc.attachment.path
     @url_to_scrap = doc.url
 
-    plag = user.plags.last
-    filename = plag.filename
+    #plag = user.plags.last
+    #filename = doc.attachment.path.split('/').last
 
-    Plag.crawl_and_scrap(@url_to_scrap, user ,doc)
-    Result.check_for_plagiarism(filename , uploaded_document ,user ,doc ,plag)
-    @results = Result.all
+
+    Plag.crawl_and_scrap(@url_to_scrap, current_user ,doc)
+
+    plag = current_user.plags.last
+    filename = plag.filename
+    
+    Result.check_for_plagiarism(filename , uploaded_document ,current_user ,doc ,plag)
+    @results = current_user.results.last
+
 
     unless @results.blank?
       flash[:notice] = "No plagiarism detected!"
