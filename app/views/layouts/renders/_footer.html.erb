@@ -1,0 +1,10 @@
+<!-- footer -->
+<footer class="footer-bottom">
+  <p>&copy All rights reserved | 2017</p>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", '#' %></li>
+        <li><%= link_to "Login", new_user_session_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Help", '#' %></li>
+      </ul>
+</footer>

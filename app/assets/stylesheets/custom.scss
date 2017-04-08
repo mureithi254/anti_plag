@@ -35,9 +35,28 @@
 .jumbotron{
 	margin-top: 10px;
 	max-width: 3000px;
+	font-family: serif;
+	font-size: 10px;
+
+}
+.plag-url{
+	float: right;
+	font-size: 5px;
+	color: rgb(246,139,30);
+	margin-top: -10px;
 }
 .footer-bottom{
     margin-top: 150px;
+    display: block;
+    background: rgb(93,73,65);
+    color: white;
+}
+ul{
+	background: rgb(93,73,65);
+	color: white;
+}
+ul:hover{
+	color: orange;
 }
 
 @media(max-width: 600px){

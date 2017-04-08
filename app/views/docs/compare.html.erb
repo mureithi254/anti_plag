@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<% @results.each do |result| %>
-  <p><%= result.plagiarised_content %></p>
-  <p><%=  @url_to_scrap %></p> 
-<% end %>
+<div class="jumbotron" id="plag"> 
+  <p><%= @result.plagiarised_content %></p>
+  <div class="plag-url">
+  	 <p><%=  @url_to_scrap %></p>
+  </div> 	
+</div>
+  

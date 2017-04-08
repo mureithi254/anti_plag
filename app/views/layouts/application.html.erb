@@ -2,34 +2,17 @@
 <html>
   <head>
     <title><%= yield(:title)  %></title>
-    <%= csrf_meta_tags %>
-
-    <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
-
-    <%= stylesheet_link_tag    'application', media: 'all','data-turbolinks-track': 'reload' %>
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
+    <%= render 'layouts/renders/rails-default' %>
   </head>
   <body>
       <div class="container">
         <%= link_to "antiplagiarism", '#',id: "logo" ,:class => 'logs' %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home", '#' %></li>
-            <li><%= link_to "Login", new_user_session_path %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-            <li><%= link_to "Help", '#' %></li>
-          </ul>
-        </nav>
       </div>
     <div class="container" style = "padding-top:20px;">
       <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <%= yield %>
+
+      <%= render 'layouts/renders/footer' %>
     </div>
   </body>
 </html>

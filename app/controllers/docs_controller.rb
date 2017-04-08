@@ -29,7 +29,7 @@ class DocsController < ApplicationController
       @docs = current_user.docs
   end
 
-  def compare
+  def compare 
   
     doc = current_user.docs.last
     uploaded_document = doc.attachment.path
@@ -45,13 +45,13 @@ class DocsController < ApplicationController
     filename = plag.filename
     
     Result.check_for_plagiarism(filename , uploaded_document ,current_user ,doc ,plag)
-    @results = current_user.results.last
+    @result = current_user.results.last
 
 
-    unless @results.blank?
-      flash[:notice] = "No plagiarism detected!"
+    unless @result.blank?
+      flash[:notice] = "plagiarism detected!"
     else
-      flash[:alert] = "plagiarism detected!"
+      flash[:notice] = "No plagiarism detected!"
     end
     
   end
