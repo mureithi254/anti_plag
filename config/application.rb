@@ -11,7 +11,8 @@ module AntiPlag
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.autoload_paths << "#{Rails.root}/lib"
+    #config.autoload_paths << "#{Rails.root}/lib"
     # config.paths.add 'lib', eager_load: true
+    config.eager_load_paths << "#{Rails.root}/lib"
   end
 end
