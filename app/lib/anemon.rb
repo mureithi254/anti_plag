@@ -34,12 +34,12 @@ module Anemon
             end
           end
 
-          ready_to_write_to_file = data.join(" ")
-        write_to_file(url, ready_to_write_to_file)
+        content = data.join("")
+        write_to_file(url, content)
         #store_visited_link(url)
         # in ruby the last statement in a method is always the returned value
         # of the particular method
-        {:url => url, :content => ready_to_write_to_file , :filename => filename ,:user => user ,:doc => doc}
+        {:url => url, :content => content , :filename => filename ,:user => user ,:doc => doc}
     end
           
     def check_for_plagiarism(scrapped_file, uploaded_document ,user ,doc ,plag)

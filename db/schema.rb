@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20170401071600) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "url"
-    t.text     "content"
     t.string   "filename"
     t.integer  "user_id"
     t.integer  "doc_id"

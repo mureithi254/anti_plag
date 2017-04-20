@@ -4,6 +4,5 @@ class CreatePlags < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :plags, unique: true
   end
 end

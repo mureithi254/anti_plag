@@ -9,6 +9,6 @@ class Plag < ApplicationRecord
 
   def self.crawl_and_scrap(url ,user ,doc) 
     result = @anemon.crawl_and_scrap(url ,user ,doc)
-    Plag.create({url: result[:url], content: result[:content], filename: result[:filename], user: user, doc: doc}) if result
+    Plag.create({url: result[:url], filename: result[:filename], user: user, doc: doc}) if result
   end
 end
