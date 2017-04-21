@@ -46,9 +46,12 @@ class DocsController < ApplicationController
     
     Result.check_for_plagiarism(filename , uploaded_document ,current_user ,doc ,plag)
     @result = current_user.results.last
+    result_to_be_counted = @result.plagiarised_content
+    count = @result.plagiarised_content.strip.split(//).count
 
 
-    unless @result.blank?
+
+    unless count > 2
       flash[:notice] = "plagiarism detected!"
     else
       flash[:notice] = "No plagiarism detected!"

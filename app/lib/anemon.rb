@@ -7,7 +7,8 @@ module Anemon
 
     def crawl_and_scrap(url ,user ,doc)
 
-      filename = url.gsub("http://", "").split(".").join("_").strip + ".txt"
+      filename = url.split(".").join("_").strip + ".txt"
+
 
       #crawl the web to get information out web pages
           puts "crawling the web..."
@@ -70,7 +71,8 @@ module Anemon
     private
 
     def write_to_file(url, data)
-      filename = url.gsub("http://", "").split(".").join("_").strip + ".txt"
+    filename = url.split(".").join("_").strip + ".txt"
+
       #File.file?(filename) will only return true for files
       #File.exists?(filename) will only return true for directories  watch out
       if File.file?(filename)
